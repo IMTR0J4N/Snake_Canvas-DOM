@@ -14,16 +14,16 @@ board.appendChild(snakePart);
 let direction = RIGHT;
 
 document.addEventListener('keydown', (dir) => {
-    if(dir.key === "ArrowUp" && direction !== DOWN) {
+    if(dir.key === "ArrowUp" && direction !== DOWN && direction !== TOP) {
       direction = TOP;
       console.log(direction);
-    } else if(dir.key === "ArrowDown" && direction !== TOP) {
+    } else if(dir.key === "ArrowDown" && direction !== TOP && direction !== DOWN) {
       direction = DOWN;
       console.log(direction);
-    } else if(dir.key === "ArrowLeft" && direction !== RIGHT) {
+    } else if(dir.key === "ArrowLeft" && direction !== RIGHT && direction !== LEFT) {
       direction = LEFT;
       console.log(direction);
-    } else if(dir.key === "ArrowRight" && direction !== LEFT) {
+    } else if(dir.key === "ArrowRight" && direction !== LEFT && direction !== RIGHT) {
       direction = RIGHT;
       console.log(direction);
     }
