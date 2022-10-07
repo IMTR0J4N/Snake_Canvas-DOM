@@ -1,12 +1,30 @@
 import '../css/style.css';
 
+const RIGHT = "right";
+const LEFT = "left";
+const TOP = "top";
+const DOWN = "down";
+
 let board = document.getElementById('board');
 
-let food = document.createElement('div');
+let snakePart = document.createElement('div');
+snakePart.classList.add('snakePart')
+board.appendChild(snakePart);
 
-food.style.height = '25px';
-food.style.width = '25px';
-food.style.backgroundColor = 'yellow';
-food.style.position = 'absolute';
+let direction = RIGHT;
 
-board.appendChild(food);
+document.addEventListener('keydown', (dir) => {
+    if(dir.key === "ArrowUp" && direction !== DOWN) {
+      direction = TOP;
+      console.log(direction);
+    } else if(dir.key === "ArrowDown" && direction !== TOP) {
+      direction = DOWN;
+      console.log(direction);
+    } else if(dir.key === "ArrowLeft" && direction !== RIGHT) {
+      direction = LEFT;
+      console.log(direction);
+    } else if(dir.key === "ArrowRight" && direction !== LEFT) {
+      direction = RIGHT;
+      console.log(direction);
+    }
+})
