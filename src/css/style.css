@@ -1,4 +1,22 @@
 body {
-  font-family: 'Courier New', Courier, monospace;
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden;
+}
+
+#board {
+  width: 800px;
+  height: 600px;
+  background-color: black;
+  position: relative;
+
+}
+
+.snakePart {
+  width: 10px;
+  height: 10px;
+  background-color: yellow;
+  position: absolute;
 }
