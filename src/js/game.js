@@ -1,7 +1,12 @@
 const SNAKE_DIR = { LEFT : "left", RIGHT : "right", UP : "up", DOWN : "down" };
 let direction = SNAKE_DIR.RIGHT;
 
-export function buildSnake(arr, board) {
+export function startGame(snakeBody, board) {
+  buildSnake(snakeBody, board);
+  document.addEventListener('keydown', control);
+}
+
+function buildSnake(arr, board) {
   for (const coord of arr) {
     let snakePart = document.createElement('div');
     snakePart.classList.add('snakePart');
@@ -11,7 +16,7 @@ export function buildSnake(arr, board) {
   }
 }
 
-export function control(e) {
+function control(e) {
   if(e.key === "ArrowUp" && direction !== SNAKE_DIR.DOWN && direction !== SNAKE_DIR.UP) {
     direction = SNAKE_DIR.UP;
     console.log(direction);
@@ -25,4 +30,8 @@ export function control(e) {
     direction = SNAKE_DIR.RIGHT;
     console.log(direction);
   }
+}
+
+function moveSnake() {
+  
 }
