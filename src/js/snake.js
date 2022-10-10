@@ -1,11 +1,15 @@
 import '../css/style.css';
-import { startGame } from './game';
+import { moveSnake, checkSnakeHeadToAppleCollision, checkSnakeHeadToSnakeTailCollision, render, restartGame, addKeyHandlers } from './game';
 
 document.addEventListener('DOMContentLoaded', () => {
-
-const snakeBody = [[36, 30], [37, 30], [38, 30], [39, 30], [40, 30]];
-
-let board = document.getElementById('board');
-
-startGame(snakeBody, board);
+  const gameLoop = () => {
+    moveSnake();
+    checkSnakeHeadToAppleCollision();
+    checkSnakeHeadToSnakeTailCollision();
+    render(); 
+  }
+  
+  restartGame();
+  setInterval(gameLoop, 1000/50);
+  addKeyHandlers();
 })

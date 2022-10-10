@@ -1,22 +1,38 @@
-body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  overflow: hidden;
+* {
+  margin: 0px;
+  padding: 0;
 }
 
 #board {
-  width: 800px;
-  height: 600px;
-  background-color: black;
-  position: relative;
-
+  position: absolute;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  top: 50%;
+  border: 1px solid rgb(0,0,0);
 }
 
-.snakePart {
+.row {
+  display: flex;
+}
+
+.tile {
+  display: inline-block;
   width: 10px;
   height: 10px;
-  background-color: yellow;
-  position: absolute;
+}
+
+.row :first-child {
+  border-left: none;
+}
+
+#board :first-child .tile {
+  border-top: none;
+}
+
+.apple {
+  background: red;
+}
+
+.snake {
+  background: green;
 }
