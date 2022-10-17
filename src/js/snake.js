@@ -1,6 +1,6 @@
-let blockSize = 25;
-let rows = 35;
-let cols = 35;
+let blockSize = 10;
+let rows = 50;
+let cols = 50;
 let board;
 let context;
 
@@ -17,7 +17,7 @@ let foodY;
 
 let gameOver = false;
 
-window.onload = function() {
+export function render() {
   board = document.getElementById("board");
   board.height = rows * blockSize;
   board.width = cols * blockSize;
