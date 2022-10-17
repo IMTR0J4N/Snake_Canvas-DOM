@@ -1,6 +1,6 @@
-import { render } from "./snake.js";
+import { renderMainMenu } from "./home.js";
 import '../css/style.css';
 
 document.addEventListener("DOMContentLoaded", () => {
-    render();
+    renderMainMenu()
 })

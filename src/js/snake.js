@@ -4,8 +4,10 @@ let cols = 50;
 let board;
 let context;
 
-let snakeX = blockSize * 5;
-let snakeY = blockSize * 5;
+let restartBtn = document.createElement('input');
+
+let snakeX;
+let snakeY;
 
 let velocityX = 0;
 let velocityY = 0;
@@ -16,16 +18,31 @@ let foodX;
 let foodY;
 
 let gameOver = false;
+let foodCounter = document.getElementById('foodCounter');
 
 export function render() {
+  getNewSnake();
+  getNewBoard();
+  placeFood();
+}
+
+export function setActInterval() {
+  document.addEventListener("keyup", changeDirection);
+  setInterval(update, 1000/50);
+}
+
+function getNewBoard() {
   board = document.getElementById("board");
   board.height = rows * blockSize;
   board.width = cols * blockSize;
   context = board.getContext("2d");
+}
 
-  placeFood();
-  document.addEventListener("keyup", changeDirection);
-  setInterval(update, 1000/50);
+function getNewSnake() {
+  gameOver = false;
+  snakeBody = [];
+  snakeX = blockSize * 5;
+  snakeY = blockSize * 5;
 }
 
 function update() {
@@ -41,6 +58,7 @@ function update() {
   if (snakeX == foodX && snakeY == foodY) {
     snakeBody.push([foodX, foodY]);
     placeFood();
+    foodCounter.innerHTML = parseInt(foodCounter.textContent) + 1
   }
 
   for(let i = snakeBody.length-1; i > 0; i--) {
@@ -74,6 +92,13 @@ function update() {
     if(snakeX == snakeBody[i][0] && snakeY == snakeBody[i][1]) {
       gameOver = true;
       alert("Game Over !");
+      restartBtn.type = `button`;
+      restartBtn.value = `Restart Game`;
+      document.body.appendChild(restartBtn);
+      restartBtn.addEventListener('click', () => {
+        document.body.removeChild(restartBtn);
+        render();
+      })
     }
   }
 }
