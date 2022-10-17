@@ -25,7 +25,7 @@ export function render() {
 
   placeFood();
   document.addEventListener("keyup", changeDirection);
-  setInterval(update, 1000/10);
+  setInterval(update, 1000/50);
 }
 
 function update() {
