@@ -27,7 +27,7 @@ export function render() {
 }
 
 export function setActInterval() {
-  document.addEventListener("keyup", changeDirection);
+  document.addEventListener("keydown", changeDirection);
   setInterval(update, 1000/50);
 }
 
