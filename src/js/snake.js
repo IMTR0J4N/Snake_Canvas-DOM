@@ -18,7 +18,7 @@ let foodX;
 let foodY;
 
 let gameOver = false;
-let foodCounter = document.getElementById('foodCounter');
+let foodCounter = document.createElement('h3');
 
 export function render() {
   getNewSnake();
@@ -36,6 +36,8 @@ function getNewBoard() {
   board.height = rows * blockSize;
   board.width = cols * blockSize;
   context = board.getContext("2d");
+  document.body.appendChild(foodCounter);
+  foodCounter.innerText = `0`;
 }
 
 function getNewSnake() {
@@ -43,6 +45,11 @@ function getNewSnake() {
   snakeBody = [];
   snakeX = blockSize * 5;
   snakeY = blockSize * 5;
+  velocityX = 1;
+  velocityY = 0;
+  for(let i = 1, l = 5; i <= l; i++) {
+    snakeBody.push([i * blockSize, 5 * blockSize]);
+  }
 }
 
 function update() {
