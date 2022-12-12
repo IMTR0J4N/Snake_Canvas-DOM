@@ -1,7 +1,9 @@
 import { render, setActInterval } from "./snake";
 
 export function renderMainMenu() {
-         displayButtons()
+    render()
+    setActInterval()
+    displayButtons()
 }
 
 function displayButtons() {
